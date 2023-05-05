@@ -2,11 +2,15 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-// import axios from 'axios'
+// 初始化样式
+import 'normalize.css'
+import '@/assets/css/index.css'
 // import { subassembly } from './utils/index'
 // .use(subassembly)
-// axios.defaults.baseURL = process.env.VUE_APP_YYY_URL
-createApp(App).use(store).use(router).mount('#app')
-// axios.post('/member/list/search/1/20').then((res) => {
-//   console.log(res)
-// })
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
+const app = createApp(App)
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
+app.use(store).use(router).mount('#app')
