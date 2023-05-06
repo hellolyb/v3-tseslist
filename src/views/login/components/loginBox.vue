@@ -2,8 +2,8 @@
   <div class="loginBox">
     <div class="zuida">
       <h3 style="margin-bottom: 10px">后台管理系统</h3>
-      <el-tabs type="border-card" stretch class="demo-tabs">
-        <el-tab-pane>
+      <el-tabs type="border-card" v-model="bbs" stretch class="demo-tabs">
+        <el-tab-pane name="Account">
           <template #label>
             <span class="custom-tabs-label">
               <el-icon><UserFilled /></el-icon>
@@ -12,7 +12,7 @@
           </template>
           <LoginAccount ref="reference"></LoginAccount>
         </el-tab-pane>
-        <el-tab-pane>
+        <el-tab-pane name="Iphone">
           <template #label>
             <span class="custom-tabs-label">
               <el-icon><Iphone /></el-icon>
@@ -31,7 +31,7 @@
           @click="logon"
           style="width: 100%; padding: 17px 0"
           type="primary"
-          >登录</el-button
+          >立即登录</el-button
         >
       </div>
     </div>
@@ -50,9 +50,16 @@ const route = useRoute()
 const router = useRouter()
 const data = reactive({})
 const status = ref<boolean>(true)
+const bbs = ref('Account')
 // 方法部分
 const logon = () => {
-  reference.value?.submitForm(status.value)
+  if (bbs.value === 'Account') {
+    // 账号登录
+    reference.value?.submitForm(status.value)
+  } else {
+    // 手机号登录
+    console.log(11111111)
+  }
 }
 watchEffect(() => {})
 // 使用toRefs解构

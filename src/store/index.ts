@@ -1,9 +1,12 @@
 import { createStore } from 'vuex'
-
+import loginModule from './login/loginModules'
 export default createStore({
   state: {},
   getters: {},
   mutations: {},
   actions: {},
-  modules: {}
+  // 业务拆分
+  modules: {
+    loginModule
+  }
 })

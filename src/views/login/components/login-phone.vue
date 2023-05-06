@@ -6,6 +6,9 @@
 // defineProps父传子, defineEmits子传父, defineExpose组件中要暴露出去的属性 setup自带
 import { ref, reactive, toRefs, watchEffect, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useStore } from 'vuex'
+// vuex仓库
+const store = useStore()
 // 路由对象
 const route = useRoute()
 // 路由实例

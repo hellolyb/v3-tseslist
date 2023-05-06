@@ -22,11 +22,13 @@
 // defineProps父传子, defineEmits子传父, defineExpose组件中要暴露出去的属性 setup自带
 import { ref, reactive, toRefs, watchEffect, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 import { rules } from '../config/rules'
 import type { ElForm } from 'element-plus'
 import exist from '@/utils/storage/loca'
 const ruleFormRef = ref<InstanceType<typeof ElForm>>()
-// const formRef = ref<InstanceType<typeof ElForm>>()
+// vuex仓库
+const store = useStore()
 // 路由对象
 const route = useRoute()
 // 路由实例
@@ -41,6 +43,7 @@ const submitForm = (st: boolean) => {
       if (st) {
         exist.exist('name', ruleForm.name)
         exist.exist('password', ruleForm.password)
+        store.dispatch('loginModule/gitUserInfo', { ...ruleForm })
       } else {
         exist.delete('name')
         exist.delete('password')
