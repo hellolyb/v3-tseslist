@@ -19,7 +19,7 @@
               <span>手机登录</span>
             </span>
           </template>
-          Route
+          <loginPhone></loginPhone>
         </el-tab-pane>
       </el-tabs>
       <div style="display: flex; justify-content: space-between">
@@ -43,6 +43,7 @@
 import { ref, reactive, toRefs, watchEffect, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import LoginAccount from './login-Account.vue'
+import loginPhone from './login-phone.vue'
 const reference = ref<InstanceType<typeof LoginAccount>>()
 // 路由对象
 const route = useRoute()

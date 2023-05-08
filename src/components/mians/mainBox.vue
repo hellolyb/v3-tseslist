@@ -1,5 +1,5 @@
 <template>
-  <div class="mani">main</div>
+  <div class="mainBox"><slot name="boxs"></slot></div>
 </template>
 
 <script lang="ts" setup>

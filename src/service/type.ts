@@ -1,3 +1,4 @@
+// 配置axios 接口规范
 import {
   AxiosRequestConfig,
   AxiosResponse,

@@ -1,4 +1,5 @@
 import { mengxueguUrl } from '../../service/beseUel'
+// 接口规范
 import { IAccount, IDataType, ILoginResult } from './type'
 export const getLoginApi = (data: IAccount) =>
   mengxueguUrl.ruquest<IDataType<ILoginResult>>({

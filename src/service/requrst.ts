@@ -52,6 +52,7 @@ class Reeuest {
       }
     )
   }
+  // request 配置请求
   ruquest<T>(config: RequestConfig): Promise<T> {
     if (config.showLoading === false) {
       this.Loading = config.showLoading
@@ -66,15 +67,19 @@ class Reeuest {
         })
     })
   }
+  // git 请求
   get<T>(config: RequestConfig): Promise<T> {
     return this.ruquest({ ...config, method: 'GET' })
   }
+  // post 请求
   post<T>(config: RequestConfig): Promise<T> {
     return this.ruquest({ ...config, method: 'POST' })
   }
+  // put 请求
   put<T>(config: RequestConfig): Promise<T> {
     return this.ruquest({ ...config, method: 'PUT' })
   }
+  // delete 请求
   delete<T>(config: RequestConfig): Promise<T> {
     return this.ruquest({ ...config, method: 'DELETE' })
   }

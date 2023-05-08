@@ -1,10 +1,9 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/mani' // 路由重定向
+    redirect: '/main' // 路由重定向
   },
   {
     path: '/login',
@@ -13,10 +12,28 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "about" */ '../views/login/login.vue')
   },
   {
-    path: '/mani',
-    name: 'mani',
+    path: '/main',
+    name: 'main',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/mani/mani.vue')
+      import(/* webpackChunkName: "about" */ '../views/main/main.vue'),
+    children: [
+      {
+        path: 'analysis/dashboard',
+        name: 'dashboard',
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ '@/views/main/analysis/dashboard/dashboard.vue'
+          )
+      },
+      {
+        path: 'analysis/overview',
+        name: 'overview',
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ '@/views/main/analysis/overview/overview.vue'
+          )
+      }
+    ]
   }
 ]
 

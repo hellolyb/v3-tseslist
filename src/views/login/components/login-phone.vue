@@ -1,5 +1,23 @@
 <template>
-  <div class="phone"></div>
+  <div class="phone">
+    <el-form
+      ref="ruleFormRef"
+      :model="ruleForm"
+      label-width="60px"
+      class="demo-ruleForm"
+      status-icon
+    >
+      <el-form-item label="手机号">
+        <el-input v-model="ruleForm.phone" />
+      </el-form-item>
+      <el-form-item label="验证码">
+        <div class="codeBox">
+          <el-input v-model="ruleForm.code" show-password />
+          <el-button type="primary">发送验证码</el-button>
+        </div>
+      </el-form-item>
+    </el-form>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -13,10 +31,24 @@ const store = useStore()
 const route = useRoute()
 // 路由实例
 const router = useRouter()
-const data = reactive({})
+const ruleForm = reactive({
+  code: '',
+  phone: ''
+})
 // 方法部分
 watchEffect(() => {})
 // 使用toRefs解构
 // let { } = { ...toRefs(data) }
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.codeBox {
+  width: 100%;
+  display: flex;
+  .el-input {
+    flex: 1;
+  }
+  .el-button {
+    margin-left: 10px;
+  }
+}
+</style>

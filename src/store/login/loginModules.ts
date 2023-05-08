@@ -35,9 +35,11 @@ const loginModule: Module<ILoginState, IRootState> = {
         commit('getToken', token)
         // 用户信息的调用
         const userInfo = await getUserInfoById(id)
+        console.log(userInfo)
+
         commit('getdepartment', userInfo.data.role)
         // 用户菜单的调用
-        const userMenus = await getUserMenu(id)
+        const userMenus = await getUserMenu(userInfo.data.role.id)
         commit('UserMenu', userMenus.data)
         // 跳转到首页
         router.push('/')
