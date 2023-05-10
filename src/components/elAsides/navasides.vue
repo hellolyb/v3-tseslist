@@ -1,5 +1,3 @@
-<!-- eslint-disable no-undef -->
-<!-- eslint-disable no-undef -->
 <template>
   <div class="navLeft">
     <el-col>
@@ -8,23 +6,23 @@
         <span v-show="!status">Vue3 + Ts</span>
       </div>
       <el-menu
-        active-text-color="#3"
+        active-text-color="#39f"
         background-color="#031527"
         :collapse="status"
         class="el-menu-vertical-demo"
-        default-active="2"
+        :default-active="$route.path"
         unique-opened
         text-color="#fff"
       >
         <template v-for="item in menuList" :key="item.id">
-          <el-sub-menu :index="String(item.id)">
+          <el-sub-menu :index="item.url">
             <template #title>
               <el-icon><Link /></el-icon>
               <!-- <component :is="item.icon"></component> -->
               <span>{{ item.name }}</span>
             </template>
             <template v-for="ele in item.children" :key="ele.id">
-              <el-menu-item :index="String(ele.id)" @click="Jump(ele)">{{
+              <el-menu-item :index="ele.url" @click="Jump(ele)">{{
                 ele.name
               }}</el-menu-item>
             </template>
@@ -55,9 +53,10 @@ defineProps({
     default: false
   }
 })
-// 方法部分
+
 const Jump = (vak: any) => {
-  console.log(vak.url)
+  console.log(vak)
+
   router.push(vak.url)
 }
 watchEffect(() => {})
@@ -82,7 +81,13 @@ watchEffect(() => {})
 .el-menu-vertical-demo {
   border: none;
 }
-.el-menu-item:hover {
-  background: rgba($color: #45b39d, $alpha: 0.3);
+
+.el-menu-item.is-active {
+  background: rgba($color: #16a085, $alpha: 0.3);
+}
+</style>
+<style>
+:focus {
+  outline: 0;
 }
 </style>

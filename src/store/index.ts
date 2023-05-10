@@ -1,7 +1,7 @@
 import { createStore } from 'vuex'
 // 登录业务
 import loginModule from './login/loginModules'
-export default createStore({
+const store = createStore({
   state: {},
   getters: {},
   mutations: {},
@@ -11,3 +11,7 @@ export default createStore({
     loginModule
   }
 })
+export default store
+export function gituserdata() {
+  store.dispatch('loginModule/gitUsermen')
+}

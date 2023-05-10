@@ -1,5 +1,4 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -15,25 +14,13 @@ const routes: Array<RouteRecordRaw> = [
     path: '/main',
     name: 'main',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/main/main.vue'),
-    children: [
-      {
-        path: 'analysis/dashboard',
-        name: 'dashboard',
-        component: () =>
-          import(
-            /* webpackChunkName: "about" */ '@/views/main/analysis/dashboard/dashboard.vue'
-          )
-      },
-      {
-        path: 'analysis/overview',
-        name: 'overview',
-        component: () =>
-          import(
-            /* webpackChunkName: "about" */ '@/views/main/analysis/overview/overview.vue'
-          )
-      }
-    ]
+      import(/* webpackChunkName: "about" */ '../views/main/main.vue')
+  },
+
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import('@/views/main/NotFound/NotFound.vue')
   }
 ]
 

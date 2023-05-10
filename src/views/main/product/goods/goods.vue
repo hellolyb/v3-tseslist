@@ -1,6 +1,6 @@
 <template>
-  <div class="dashboard">
-    <h2>dashboard</h2>
+  <div class="goods">
+    <h2>goods</h2>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'dashboard',
+  name: 'goods',
   setup() {
     return {}
   }

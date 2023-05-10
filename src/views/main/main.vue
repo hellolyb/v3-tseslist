@@ -41,7 +41,7 @@ watchEffect(() => {})
   width: 100%;
   height: 100%;
   .el-header {
-    background-color: #fff;
+    background-image: linear-gradient(135deg, #abdcff 10%, #0396ff 100%);
     height: 60px;
   }
 
@@ -52,7 +52,7 @@ watchEffect(() => {})
   }
 
   .el-main {
-    background-color: #e9eef3;
+    background-image: linear-gradient(135deg, #3c8ce7 10%, #00eaff 100%);
     color: #333;
   }
 
