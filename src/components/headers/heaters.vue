@@ -11,12 +11,10 @@
       <el-icon size="28" @click="toggle"
         ><Fold v-if="!status" /> <Expand v-else
       /></el-icon>
-      <div>
-        <div class="loader"></div>
-      </div>
+      <div class="loader"></div>
     </div>
     <div class="headersBox">
-      <div style="margin-left: 20px">面包屑导航</div>
+      <breadcrumb></breadcrumb>
       <Heinfo></Heinfo>
     </div>
   </div>
@@ -27,6 +25,7 @@
 import { fa } from 'element-plus/es/locale'
 import { ref, reactive, toRefs, watchEffect, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import breadcrumb from '@/baseUI/breadcrumb/breadcrumb.vue'
 import Heinfo from './heinfo.vue'
 // 路由对象
 const route = useRoute()
@@ -52,6 +51,7 @@ watchEffect(() => {})
   height: 100%;
   display: flex;
   align-items: center;
+  color: #fff;
   .headersBox {
     width: 100%;
     display: flex;
@@ -69,7 +69,7 @@ watchEffect(() => {})
     content: '';
     width: 48px;
     height: 7px;
-    background: #f0808050;
+    background-image: linear-gradient(135deg, #2afadf 10%, #4c83ff 100%);
     position: absolute;
     top: 40px;
     left: 0;
@@ -82,7 +82,7 @@ watchEffect(() => {})
     content: '';
     width: 100%;
     height: 100%;
-    background: #f08080;
+    background-image: linear-gradient(135deg, #3c8ce7 10%, #00eaff 100%);
     position: absolute;
     top: -10px;
     left: 0;

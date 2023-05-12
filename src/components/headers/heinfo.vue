@@ -51,5 +51,8 @@ watchEffect(() => {})
   justify-content: space-between;
   display: flex;
   align-items: center;
+  span {
+    color: #fff;
+  }
 }
 </style>

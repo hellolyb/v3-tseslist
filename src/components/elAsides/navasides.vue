@@ -7,7 +7,7 @@
       </div>
       <el-menu
         active-text-color="#39f"
-        background-color="#031527"
+        background-color="#764ba2"
         :collapse="status"
         class="el-menu-vertical-demo"
         :default-active="$route.path"
@@ -55,8 +55,6 @@ defineProps({
 })
 
 const Jump = (vak: any) => {
-  console.log(vak)
-
   router.push(vak.url)
 }
 watchEffect(() => {})
@@ -84,6 +82,16 @@ watchEffect(() => {})
 
 .el-menu-item.is-active {
   background: rgba($color: #16a085, $alpha: 0.3);
+}
+.el-menu-item:hover {
+  background-image: linear-gradient(
+    to right,
+    #eea2a2 0%,
+    #bbc1bf 19%,
+    #57c6e1 42%,
+    #b49fda 79%,
+    #7ac5d8 100%
+  );
 }
 </style>
 <style>

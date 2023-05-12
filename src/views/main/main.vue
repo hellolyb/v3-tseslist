@@ -43,17 +43,19 @@ watchEffect(() => {})
   .el-header {
     background-image: linear-gradient(135deg, #abdcff 10%, #0396ff 100%);
     height: 60px;
+    color: #fff;
   }
 
   .el-aside {
-    background-color: #031527;
+    // background-color: #031527;
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
     transition: all 0.3s linear;
   }
 
   .el-main {
     background-image: linear-gradient(135deg, #3c8ce7 10%, #00eaff 100%);
-    color: #333;
+    color: #fff;
   }
 
   .el-container {
